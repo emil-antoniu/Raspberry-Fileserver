@@ -1,0 +1,2 @@
+FILESERVER not showing up on the network -> Ensure SSID was configured correctly.
+Default user should be "pi" if no user was manually set.
