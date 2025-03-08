@@ -8,3 +8,8 @@ sudo apt install qbittorrent-nox -y
 wget https://www.expressvpn.works/clients/linux/expressvpn_3.83.0.2-1_armhf.deb
 sudo dpkg -i expressvpn_*.deb
 sudo apt --fix-broken install
+
+# Install Samba Share
+
+# OPTIONAL
+# Install UFW
