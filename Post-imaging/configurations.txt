@@ -1,5 +1,0 @@
-# Update software
-sudo apt update && sudo apt upgrade -y
-
-# Install qbittorrent-nox for file sharing
-sudo apt install qbittorrent-nox -y
