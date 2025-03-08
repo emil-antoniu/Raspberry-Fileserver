@@ -3,3 +3,8 @@ sudo mkdir /media/usb
 # Mount external drive onto which the image will be copied.
 sudo mount /dev/sda1 /media/usb
 sudo dd if=/dev/mmcblk0 bs=4M | gzip > /media/usb/arc-fileserver-backup.img.gz
+
+# UFW configurations.
+sudo ufw allow ssh
+sudo ufw default deny incoming
+sudo ufw enable

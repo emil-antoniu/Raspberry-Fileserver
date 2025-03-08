@@ -11,5 +11,6 @@ sudo apt --fix-broken install
 
 # Install Samba Share
 
-# OPTIONAL
+
 # Install UFW
+sudo apt install ufw -y
