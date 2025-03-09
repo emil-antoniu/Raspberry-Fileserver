@@ -20,10 +20,16 @@ sudo ufw enable
 
 # Samba configurations.
 sudo nano /etc/samba/smb.conf
-## smb.conf file should have this appended at the end.
-[Shared]
-   comment = Raspberry Pi Shared Folder
-   path = /home/pi/Shared
+## smb.conf file should only contain the following.
+[global]
+   workgroup = WORKGROUP
+   server string = Raspberry Pi Samba Server
+   security = user
+   map to guest = Bad User
+
+[hdd]
+   comment = MAIN STORAGE UNIT
+   path = /media/hdd
    browseable = yes
    writable = yes
    create mask = 0777
