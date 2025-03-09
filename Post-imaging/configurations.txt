@@ -4,6 +4,21 @@ sudo mkdir /media/usb
 sudo mount /dev/sda1 /media/usb
 sudo dd if=/dev/mmcblk0 bs=4M | gzip > /media/usb/arc-fileserver-backup.img.gz
 
+# ExpressVPN configuations.
+expressvpn preferences set field value
+auto_connect            true
+block_ads               true
+block_adult             true
+block_all               true
+block_malicious         true
+block_trackers          true
+desktop_notifications   false
+disable_ipv6            true
+lightway_cipher         auto
+network_lock            strict
+preferred_protocol      auto
+send_diagnostics        true
+
 # UFW configurations.
 sudo ufw allow ssh
 sudo ufw default deny incoming
