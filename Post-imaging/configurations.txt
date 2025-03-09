@@ -1,6 +1,6 @@
 # Setup for image backups.
 sudo mkdir /media/usb
-# Mount external drive onto which the image will be copied.
+# Mount external drive onto which the image will be copied. Double-check partition name.
 sudo mount /dev/sda1 /media/usb
 sudo dd if=/dev/mmcblk0 bs=4M | gzip > /media/usb/arc-fileserver-backup.img.gz
 
@@ -9,6 +9,8 @@ sudo ufw allow ssh
 sudo ufw default deny incoming
 # Allow 8080 for qbittorrent-nox WebUI
 sudo ufw allow 8080/tcp
+# Allow Samba to distribute files on LAN
+sudo ufw allow Samba
 sudo ufw enable
 
 # qbittorrent-nox configurations.
@@ -17,5 +19,24 @@ sudo ufw enable
 ### Change default username and password.
 
 # Samba configurations.
+sudo nano /etc/samba/smb.conf
+## smb.conf file should have this appended at the end.
+[Shared]
+   comment = Raspberry Pi Shared Folder
+   path = /home/pi/Shared
+   browseable = yes
+   writable = yes
+   create mask = 0777
+   directory mask = 0777
+   guest ok = yes
+   public = yes
+   force user = pi
+sudo systemctl restart smbd
+sudo systemctl status smbd
 
 # External storage configuations.
+sudo mkdir /media/hdd
+# Double-check partition name.
+sudo mount /dev/sda1 /media/hdd
+
+# OLED Display configurations.
