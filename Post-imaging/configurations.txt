@@ -7,4 +7,15 @@ sudo dd if=/dev/mmcblk0 bs=4M | gzip > /media/usb/arc-fileserver-backup.img.gz
 # UFW configurations.
 sudo ufw allow ssh
 sudo ufw default deny incoming
+# Allow 8080 for qbittorrent-nox WebUI
+sudo ufw allow 8080/tcp
 sudo ufw enable
+
+# qbittorrent-nox configurations.
+
+## WebUI
+### Change default username and password.
+
+# Samba configurations.
+
+# External storage configuations.

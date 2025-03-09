@@ -10,7 +10,7 @@ sudo dpkg -i expressvpn_*.deb
 sudo apt --fix-broken install
 
 # Install Samba Share
-
+sudo apt install samba -y
 
 # Install UFW
 sudo apt install ufw -y

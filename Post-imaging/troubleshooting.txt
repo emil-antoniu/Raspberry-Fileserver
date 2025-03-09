@@ -1,2 +1,3 @@
 FILESERVER not showing up on the network -> Ensure SSID was configured correctly.
 Default user should be "pi" if no user was manually set.
+UFW might block network applications, e.g. qbittorrent-nox. Disabling it should narrow down the problem.
