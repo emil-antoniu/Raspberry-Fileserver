@@ -10,6 +10,22 @@ lsblk -o NAME,UUID,MOUNTPOINT,FSTYPE
 sudo nano /etc/fstab
 UUID=XXXXX /media/hdd ntfs-3g defaults,noatime,bigwrites 0 2
 sudo mount -a
+## Starting qbittorrent-nox on boot.
+sudo nano /etc/systemd/system/qbittorrent-nox.service
+[Unit]
+Description=qBittorrent-nox
+After=network.target
+
+[Service]
+User=pi
+ExecStart=/usr/bin/qbittorrent-nox
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl enable qbittorrent-nox  
+sudo systemctl start qbittorrent-nox  
 
 # ExpressVPN configuations.
 expressvpn preferences set field value
