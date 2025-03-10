@@ -4,6 +4,13 @@ sudo mkdir /media/usb
 sudo mount /dev/sda1 /media/usb
 sudo dd if=/dev/mmcblk0 bs=4M | gzip > /media/usb/arc-fileserver-backup.img.gz
 
+# Startup.
+## Mounting external storage.
+lsblk -o NAME,UUID,MOUNTPOINT,FSTYPE
+sudo nano /etc/fstab
+UUID=XXXXX /media/hdd ntfs-3g defaults,noatime,bigwrites 0 2
+sudo mount -a
+
 # ExpressVPN configuations.
 expressvpn preferences set field value
 auto_connect            true
