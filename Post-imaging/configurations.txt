@@ -45,9 +45,15 @@ send_diagnostics        true
 # UFW configurations.
 sudo ufw allow ssh
 sudo ufw default deny incoming
-# Allow 8080 for qbittorrent-nox WebUI
+# Allow 8080 for qbittorrent-nox WebUI.
 sudo ufw allow 8080/tcp
-# Allow Samba to distribute files on LAN
+# Allow qbittorrent-nox to listen on 57683.
+sudo ufw allow 57683/tcp  
+sudo ufw allow 57683/udp  
+# Allow qbittorrent-nox to use default peer communication ports.
+sudo ufw allow 6881:6889/tcp  
+sudo ufw allow 6881:6889/udp 
+# Allow Samba to distribute files on LAN.
 sudo ufw allow Samba
 sudo ufw enable
 
@@ -55,6 +61,9 @@ sudo ufw enable
 
 ## WebUI
 ### Change default username and password.
+### Use the interface with the VPN only (generally tun0).
+### Change default save path to /media/hdd.
+### Disable UPnP.
 
 # Samba configurations.
 sudo nano /etc/samba/smb.conf

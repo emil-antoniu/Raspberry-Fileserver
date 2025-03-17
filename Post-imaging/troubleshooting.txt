@@ -1,3 +1,4 @@
 FILESERVER not showing up on the network -> Ensure SSID was configured correctly.
 Default user should be "pi" if no user was manually set.
 UFW might block network applications, e.g. qbittorrent-nox. Disabling it should narrow down the problem.
+There are specific UFW rules for qbittorrent-nox, based on port numbers. Make sure to check qbit's ports-in-use with sudo netstat -tulnp | grep qbittorrent.
