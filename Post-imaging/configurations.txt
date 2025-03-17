@@ -64,6 +64,7 @@ sudo ufw enable
 ### Use the interface with the VPN only (generally tun0).
 ### Change default save path to /media/hdd.
 ### Disable UPnP.
+### Automatically add torrents from /media/hdd.
 
 # Samba configurations.
 sudo nano /etc/samba/smb.conf
