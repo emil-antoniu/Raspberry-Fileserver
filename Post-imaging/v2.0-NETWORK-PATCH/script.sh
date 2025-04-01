@@ -13,6 +13,7 @@ echo "Installing ExpressVPN..."
 wget https://www.expressvpn.works/clients/linux/expressvpn_3.83.0.2-1_armhf.deb
 sudo dpkg -i expressvpn_*.deb
 sudo apt --fix-broken install -y
+expressvpn activate
 
 # Install UFW
 echo "Installing UFW..."
