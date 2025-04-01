@@ -76,10 +76,9 @@ Allow default peer communication ports:
 sudo ufw allow 6881:6889/tcp  
 sudo ufw allow 6881:6889/udp  
 ```
-Allow Samba for LAN file sharing:
+Allow FTPS for LAN file sharing:
 ```bash
-sudo ufw allow Samba
-sudo ufw enable
+TO BE DETERMINED
 ```
 
 # qBittorrent-nox Configurations
