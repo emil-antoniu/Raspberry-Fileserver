@@ -21,7 +21,7 @@ Replace contents with:
 
 [hdd]
    comment = MAIN STORAGE UNIT
-   path = /media/hdd
+   path = /home/pi/Downloads
    browseable = yes
    writable = yes
    create mask = 0777
