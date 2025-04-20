@@ -6,7 +6,6 @@ sudo apt install samba -y
 Allow Samba for LAN file sharing:
 ```
 sudo ufw allow Samba
-sudo ufw enable
 ```
 ```
 sudo nano /etc/samba/smb.conf
@@ -29,8 +28,9 @@ Replace contents with:
    guest ok = yes
    public = yes
    force user = pi
+```
 Restart Samba:
-
+```
 sudo systemctl restart smbd
 sudo systemctl status smbd
 ```
