@@ -18,8 +18,8 @@ Replace contents with:
    security = user
    map to guest = Bad User
 
-[hdd]
-   comment = MAIN STORAGE UNIT
+[microSD]
+   comment = AUXILIARY STORAGE UNIT
    path = /home/pi/Downloads
    browseable = yes
    writable = yes
