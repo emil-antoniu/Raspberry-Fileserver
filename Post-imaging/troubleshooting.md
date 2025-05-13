@@ -12,3 +12,10 @@
 - Check qBittorrent's ports in use with:  
   ```bash
   sudo netstat -tulnp | grep qbittorrent
+- Test theoretical throughput for network interface with iperf3. The first command should be run on a PC on the network.
+  ```bash
+  iperf3 -s
+  ```
+  ```bash
+  iperf3 -c <PC_IP>
+  ```
