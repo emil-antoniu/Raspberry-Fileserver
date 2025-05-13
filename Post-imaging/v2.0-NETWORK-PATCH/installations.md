@@ -25,3 +25,8 @@ sudo apt --fix-broken install
 ```sh
 sudo apt install ufw -y
 ```
+
+# Install iperf3
+```sh
+sudo apt install iperf3 -y
+```
