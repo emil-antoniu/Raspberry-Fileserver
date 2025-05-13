@@ -19,3 +19,9 @@
   ```bash
   iperf3 -c <PC_IP>
   ```
+
+## Samba
+- View active share configurations:
+```bash
+testparm -s
+```
