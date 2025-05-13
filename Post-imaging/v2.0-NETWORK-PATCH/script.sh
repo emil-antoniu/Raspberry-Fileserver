@@ -19,6 +19,10 @@ expressvpn activate
 echo "Installing UFW..."
 sudo apt install ufw -y
 
+# Install iperf3
+echo "Installing iperf3..."
+sudo apt install iperf3 -y
+
 # Configure qBittorrent-nox service
 echo "Configuring qBittorrent-nox service..."
 cat <<EOF | sudo tee /etc/systemd/system/qbittorrent-nox.service
