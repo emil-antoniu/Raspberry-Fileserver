@@ -48,6 +48,10 @@ For restricted access, use:
    directory mask = 0770
    public = no
 ```
+Remember to create a user, as SMB has a separate database from the one that holds system accounts.
+```
+sudo smbpasswd -a USERNAME
+```
 Restart Samba:
 ```
 sudo systemctl restart smbd
