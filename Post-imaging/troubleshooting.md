@@ -25,3 +25,26 @@
 ```bash
 testparm -s
 ```
+
+## qbittorrent slow speeds
+Tried the following DNS configuration to no avail:
+```
+nmcli connection show
+
+sudo nmcli connection modify "preconfigured" ipv4.dns "1.1.1.1 1.0.0.1"
+sudo nmcli connection modify "preconfigured" ipv4.ignore-auto-dns yes
+sudo nmcli connection down "preconfigured"
+sudo nmcli connection up "preconfigured"
+
+sudo nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 1.0.0.1"
+sudo nmcli connection modify "Wired connection 1" ipv4.ignore-auto-dns yes
+sudo nmcli connection down "Wired connection 1"
+sudo nmcli connection up "Wired connection 1"
+
+nmcli device show wlan0 | grep IP4.DNS
+```
+as well as the following client configurations:
+- Tools>Options>Connection:
+- Enabled Protocol - set to TCP (just TCP, not 'TCP and uTP')
+- Uncheck all boxes under 'Listening Port' and 'Connections Limits'.
+- Tools>Options>Speed: Uncheck all boxes under 'Rate Limits Settings'.
