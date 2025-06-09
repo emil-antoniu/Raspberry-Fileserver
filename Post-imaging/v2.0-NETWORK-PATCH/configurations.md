@@ -45,17 +45,17 @@ expressvpn preferences set field value
 | Field                 | Value  |
 |-----------------------|--------|
 | auto_connect         | true   |
-| block_ads           | true   |
-| block_adult         | true   |
-| block_all           | true   |
-| block_malicious     | true   |
-| block_trackers      | true   |
+| block_ads           | false   |
+| block_adult         | false   |
+| block_all           | false   |
+| block_malicious     | false   |
+| block_trackers      | false   |
 | desktop_notifications | false |
 | disable_ipv6        | true   |
 | lightway_cipher     | auto   |
-| network_lock        | strict |
-| preferred_protocol  | auto   |
-| send_diagnostics    | true   |
+| network_lock        | off |
+| preferred_protocol  | udp   |
+| send_diagnostics    | false   |
 
 # UFW Configurations
 ```bash
