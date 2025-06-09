@@ -48,3 +48,5 @@ as well as the following client configurations:
 - Enabled Protocol - set to TCP (just TCP, not 'TCP and uTP')
 - Uncheck all boxes under 'Listening Port' and 'Connections Limits'.
 - Tools>Options>Speed: Uncheck all boxes under 'Rate Limits Settings'.
+<br>
+After further troubleshooting, the VPN seems to be the issue. Compromised by switching over to OpenVPN UDP.
