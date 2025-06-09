@@ -30,3 +30,8 @@ sudo apt install ufw -y
 ```sh
 sudo apt install iperf3 -y
 ```
+
+# Install speedtest-cli
+```sh
+sudo apt install speedtest-cli -y
+```
