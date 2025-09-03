@@ -1,9 +1,11 @@
 ### PIN Connections
 
-GND - GND (9)
-VCC - 3.3V (1)
-SCL - SCL (5)
-SDA - SDA (3)
+<ul>
+<li>GND - GND (9)</li>
+<li>VCC - 3.3V (1)</li>
+<li>SCL - SCL (5)</li>
+<li>SDA - SDA (3)</li>
+</ul>
 
 ### I2C Configuration
 
@@ -27,7 +29,7 @@ pip3 install adafruit-circuitpython-ssd1306 --break-system-packages
 pip3 install pillow --break-system-packages
 ```
 OLED script.
-```
+```python
 import board
 import busio
 import subprocess
@@ -36,6 +38,7 @@ from adafruit_ssd1306 import SSD1306_I2C
 from PIL import Image, ImageDraw, ImageFont
 
 def is_vpn_connected():
+
         verdict = subprocess.run(
                 ["expressvpn", "status"], capture_output=True, text=True
         )
@@ -43,6 +46,21 @@ def is_vpn_connected():
         if "connected to" in verdict.stdout.lower(): return True
 
         return False
+
+def can_reach_internet(host="8.8.8.8"):
+
+        try:
+                verdict = subprocess.run(
+                        ["ping", "-c", "1", "-W", "2", host], capture_output=True, text=True
+                )
+
+                return verdict.returncode == 0
+
+        except any_exception: return False
+
+def is_p2p_running(): pass
+
+def fileserver_uptime(): pass
 
 # Setup I2C
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -60,14 +78,21 @@ while True:
         draw = ImageDraw.Draw(image)
 
         # Draw text
-        if is_vpn_connected() == True:
-                draw.text((0, 0), "VPN.............................OK", font=font, fill=255)
+        if can_reach_internet() == True:
+                draw.text((0, 0), "WAN.............................OK", font=font, fill=255)
         else:
-                draw.text((0, 0), "VPN........................ERROR", font=font, fill=255)
+                draw.text((0, 0), "WAN........................ERROR", font=font, fill=255)
+
+        if is_vpn_connected() == True:
+                draw.text((0, 0), "\nVPN..............................OK", font=font, fill=255)
+        else:
+                draw.text((0, 0), "\nVPN........................ERROR", font=font, fill=255)
+
+        draw.text((0, 0), "\n\n3\n4", font=font, fill=255)
 
         # Display image
         oled.image(image)
         oled.show()
 
-        time.sleep(5)
+        time.sleep(60)
 ```
