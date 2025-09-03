@@ -1,8 +1,5 @@
-### Install Samba Share
-As neither FTPS nor SFTP were available for the router, the FILESERVER's limited storage will be used with Samba for file sharing. Backups will be made when necessary.
-```
-sudo apt install samba -y
-```
+# Configure Samba
+
 Allow Samba for LAN file sharing:
 ```
 sudo ufw allow Samba
