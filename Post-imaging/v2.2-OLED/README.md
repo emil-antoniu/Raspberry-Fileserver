@@ -58,7 +58,17 @@ def can_reach_internet(host="8.8.8.8"):
 
         except any_exception: return False
 
-def is_p2p_running(): pass
+def is_p2p_running(service="qbittorrent-nox.service"):
+
+        try:
+                verdict = subprocess.run(
+                        ["systemctl", "is-active", service], capture_output=True, text=True
+                )
+
+                return verdict.stdout.strip() == "active"
+
+        except any_exception: return False
+
 
 def fileserver_uptime(): pass
 
@@ -88,7 +98,12 @@ while True:
         else:
                 draw.text((0, 0), "\nVPN........................ERROR", font=font, fill=255)
 
-        draw.text((0, 0), "\n\n3\n4", font=font, fill=255)
+        if is_p2p_running() == True:
+                draw.text((0, 0), "\n\nP2P..............................OK", font=font, fill=255)
+        else:
+                draw.text((0, 0), "\n\nP2P........................ERROR", font=font, fill=255)
+
+        draw.text((0, 0), "\n\n\n4", font=font, fill=255)
 
         # Display image
         oled.image(image)
