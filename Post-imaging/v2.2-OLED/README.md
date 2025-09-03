@@ -70,7 +70,13 @@ def is_p2p_running(service="qbittorrent-nox.service"):
         except any_exception: return False
 
 
-def fileserver_uptime(): pass
+def fileserver_uptime():
+
+        uptime = subprocess.run(
+                ["uptime", "-p"], capture_output=True, text=True
+        )
+
+        return uptime.stdout.strip()
 
 # Setup I2C
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -103,7 +109,7 @@ while True:
         else:
                 draw.text((0, 0), "\n\nP2P........................ERROR", font=font, fill=255)
 
-        draw.text((0, 0), "\n\n\n4", font=font, fill=255)
+        draw.text((0, 0), "\n\n\n{0}".format(fileserver_uptime()), font=font, fill=255)
 
         # Display image
         oled.image(image)
