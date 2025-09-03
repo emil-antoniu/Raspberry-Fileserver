@@ -30,6 +30,7 @@ pip3 install pillow --break-system-packages
 ```
 OLED script.
 ```python
+#!/usr/bin/env python3
 import board
 import busio
 import subprocess
@@ -116,4 +117,35 @@ while True:
         oled.show()
 
         time.sleep(60)
+```
+
+### System Service
+
+A system service can be created as follows:
+```
+sudo nano /etc/systemd/system/oled-status.service
+```
+With the contents:
+```
+[Unit]
+Description=OLED Status Display
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/anton/oled_status.py
+WorkingDirectory=/home/anton
+StandardOutput=journal
+StandardError=journal
+Restart=always
+User=anton
+
+[Install]
+WantedBy=multi-user.target
+```
+Reload systemd and enable the service.
+```
+sudo systemctl daemon-reload
+sudo systemctl enable oled-status.service
+sudo systemctl start oled-status.service
+systemctl status oled-status.service
 ```
