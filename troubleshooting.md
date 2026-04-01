@@ -1,5 +1,11 @@
 # Troubleshooting
 
+## Public key authentication
+
+Raspberry Pi Imager requires a specific format for recognizing public keys, typically OpenSSH format:
+
+`ssh-rsa KEY...`
+
 ## FILESERVER not showing up on the network
 - Ensure SSID was configured correctly.
 
