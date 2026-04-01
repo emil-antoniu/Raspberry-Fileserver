@@ -28,7 +28,7 @@ Consider setting TMPDIR to a directory with more free space.
 
 `mkdir -p ~/tmp`
 
-`TMPDIR=~/tmp ./expressvpn-linux-universal-5.1.0.12141_release.run`
+`TMPDIR=~/tmp ./expressvpn-linux-universal-5.1.0.12141_release.run --nodiskspace`
 
 ## UFW and Network Applications
 - UFW might block network applications, e.g., `qbittorrent-nox`. Disabling it should help narrow down the problem.
