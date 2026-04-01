@@ -31,7 +31,7 @@ Description=qBittorrent-nox
 After=network.target
 
 [Service]
-User=pi
+User=system-administrator
 ExecStart=/usr/bin/qbittorrent-nox
 Restart=always
 
