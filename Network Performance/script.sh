@@ -23,6 +23,10 @@ sudo apt install ufw -y
 echo "Installing iperf3..."
 sudo apt install iperf3 -y
 
+# Install speedtest-cli
+echo "Installing speedtest-cli..."
+sudo apt install speedtest-cli -y
+
 # Configure qBittorrent-nox service
 echo "Configuring qBittorrent-nox service..."
 cat <<EOF | sudo tee /etc/systemd/system/qbittorrent-nox.service
