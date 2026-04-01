@@ -50,7 +50,16 @@ Consider setting TMPDIR to a directory with more free space.
 testparm -s
 ```
 
-## qbittorrent slow speeds
+## qbittorrent
+
+### First time temporary password
+
+Visible in the process logs:
+
+`journalctl -u qbittorrent-nox.service`
+
+### Slow speeds
+
 Tried the following DNS configuration to no avail:
 ```
 nmcli connection show
