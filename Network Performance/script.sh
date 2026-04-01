@@ -10,10 +10,10 @@ sudo apt install qbittorrent-nox -y
 
 # Install ExpressVPN
 echo "Installing ExpressVPN..."
-wget https://www.expressvpn.works/clients/linux/expressvpn_3.83.0.2-1_armhf.deb
-sudo dpkg -i expressvpn_*.deb
-sudo apt --fix-broken install -y
-expressvpn activate
+wget https://www.expressvpn.works/clients/linux/expressvpn-linux-universal-5.1.0.12141_release.run
+chmod u+x ./expressvpn-linux-universal-5.1.0.12141_release.run
+mkdir -p ~/tmp
+TMPDIR=~/tmp ./expressvpn-linux-universal-5.1.0.12141_release.run --nodiskspace
 
 # Install UFW
 echo "Installing UFW..."
