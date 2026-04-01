@@ -39,9 +39,7 @@ sudo systemctl start qbittorrent-nox
 ```
 
 # ExpressVPN Configurations
-```bash
-expressvpn preferences set field value
-```
+
 | Field                 | Value  |
 |-----------------------|--------|
 | auto_connect         | true   |
