@@ -12,6 +12,24 @@ Raspberry Pi Imager requires a specific format for recognizing public keys, typi
 ## Default User
 - The default user should be **"pi"** if no user was manually set.
 
+## ExpressVPN
+
+- Ensure the app is up to date. Updating it might raise errors related to memory:
+
+```
+Verifying archive integrity...  100%   MD5 checksums are OK. All good.
+Uncompressing ExpressVPN
+Not enough space left in /tmp (213064 KB) to decompress ./expressvpn-linux-universal-5.1.0.12141_release.run (495292 KB)
+Use --nodiskspace option to skip this check and proceed anyway
+Consider setting TMPDIR to a directory with more free space.
+```
+
+- A workaround is to use a different TMPDIR.
+
+`mkdir -p ~/tmp`
+
+`TMPDIR=~/tmp ./expressvpn-linux-universal-5.1.0.12141_release.run`
+
 ## UFW and Network Applications
 - UFW might block network applications, e.g., `qbittorrent-nox`. Disabling it should help narrow down the problem.
 - There are specific UFW rules for `qbittorrent-nox`, based on port numbers.  
