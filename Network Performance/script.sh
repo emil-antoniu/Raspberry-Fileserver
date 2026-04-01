@@ -46,21 +46,6 @@ EOF
 sudo systemctl enable qbittorrent-nox
 sudo systemctl start qbittorrent-nox
 
-# Configure ExpressVPN
-echo "Configuring ExpressVPN..."
-expressvpn preferences set auto_connect true
-expressvpn preferences set block_ads true
-expressvpn preferences set block_adult true
-expressvpn preferences set block_all true
-expressvpn preferences set block_malicious true
-expressvpn preferences set block_trackers true
-expressvpn preferences set desktop_notifications false
-expressvpn preferences set disable_ipv6 true
-expressvpn preferences set lightway_cipher auto
-expressvpn preferences set network_lock strict
-expressvpn preferences set preferred_protocol auto
-expressvpn preferences set send_diagnostics true
-
 # Configure UFW
 echo "Configuring UFW..."
 sudo ufw allow ssh
@@ -72,4 +57,4 @@ sudo ufw allow 6881:6889/tcp
 sudo ufw allow 6881:6889/udp
 sudo ufw enable
 
-echo "Setup complete. Please configure qBittorrent WebUI settings manually."
+echo "Setup complete. Please configure qBittorrent WebUI and ExpressVPN settings manually."
