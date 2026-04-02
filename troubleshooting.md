@@ -8,6 +8,7 @@ Raspberry Pi Imager requires a specific format for recognizing public keys, typi
 
 ## FILESERVER not showing up on the network
 - Ensure SSID was configured correctly.
+- Fully formatting the micro SD before imaging might help clear memory corruptions.
 
 ## Default User
 - The default user should be **"pi"** if no user was manually set.
