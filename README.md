@@ -1,6 +1,6 @@
 # Raspberry Fileserver
 
-<p>This constitutes a home project for file sharing on a local network, as well as on wide area networks via a peer-to-peer client.</p>
+<p>This constitutes a home project for file sharing on a local network, as well as on wide area networks via a peer-to-peer sharing client.</p>
 
 <p>The fileserver is a Raspberry Pi Model 3 A+ provisioned with a 0.96 Inch I2C/IIC 4-Pin OLED Display Module running Raspberry OS 64-bit Lite.</p>
 
