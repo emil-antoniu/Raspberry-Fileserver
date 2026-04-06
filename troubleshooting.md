@@ -1,4 +1,4 @@
-# Troubleshooting
+# Troubleshooting common issues
 
 ## Public key authentication
 
@@ -15,7 +15,8 @@ Raspberry Pi Imager requires a specific format for recognizing public keys, typi
 
 ## ExpressVPN
 
-- Ensure the app is up to date. Updating it might raise errors related to memory:
+- Ensure a non-Lightway protocol (Lightway is ExpressVPN's proprietary tunneling protocol) is enabled to avoid throttling.
+- Ensure the app is up to date. The installation might raise errors related to memory:
 
 ```
 Verifying archive integrity...  100%   MD5 checksums are OK. All good.
@@ -37,13 +38,6 @@ Consider setting TMPDIR to a directory with more free space.
 - Check qBittorrent's ports in use with:  
   ```bash
   sudo netstat -tulnp | grep qbittorrent
-- Test theoretical throughput for network interface with iperf3. The first command should be run on a PC on the network.
-  ```bash
-  iperf3 -s
-  ```
-  ```bash
-  iperf3 -c <PC_IP>
-  ```
 
 ## Samba
 - View active share configurations:
@@ -59,28 +53,20 @@ Visible in the process logs:
 
 `journalctl -u qbittorrent-nox.service`
 
-### Slow speeds
+## Slow network speeds
 
-Tried the following DNS configuration to no avail:
-```
-nmcli connection show
+- Test theoretical throughput for network interface with iperf3. The first command should be run on a PC on the network.
+  ```bash
+  iperf3 -s
+  ```
+  ```bash
+  iperf3 -c <PC_IP>
+  ```
 
-sudo nmcli connection modify "preconfigured" ipv4.dns "1.1.1.1 1.0.0.1"
-sudo nmcli connection modify "preconfigured" ipv4.ignore-auto-dns yes
-sudo nmcli connection down "preconfigured"
-sudo nmcli connection up "preconfigured"
-
-sudo nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 1.0.0.1"
-sudo nmcli connection modify "Wired connection 1" ipv4.ignore-auto-dns yes
-sudo nmcli connection down "Wired connection 1"
-sudo nmcli connection up "Wired connection 1"
-
-nmcli device show wlan0 | grep IP4.DNS
-```
-as well as the following client configurations:
+Tried alternative DNS configurations, as well as the following qbit client configurations:
 - Tools>Options>Connection:
 - Enabled Protocol - set to TCP (just TCP, not 'TCP and uTP')
 - Uncheck all boxes under 'Listening Port' and 'Connections Limits'.
 - Tools>Options>Speed: Uncheck all boxes under 'Rate Limits Settings'.
 <br>
-After further troubleshooting, the VPN seems to be the issue. Compromised by switching over to OpenVPN UDP.
+After further troubleshooting, the VPN seemed to be the issue. Switched over to OpenVPN UDP.

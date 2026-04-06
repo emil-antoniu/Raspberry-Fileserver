@@ -55,6 +55,6 @@ sudo ufw allow 57683/tcp
 sudo ufw allow 57683/udp
 sudo ufw allow 6881:6889/tcp
 sudo ufw allow 6881:6889/udp
-sudo ufw enable
+# to add additional rules
 
-echo "Setup complete. Please configure qBittorrent WebUI and ExpressVPN settings manually."
+echo "Setup complete. Please configure qBittorrent WebUI and ExpressVPN settings manually, and enable the firewall."
