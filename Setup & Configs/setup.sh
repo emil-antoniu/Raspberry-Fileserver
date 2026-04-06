@@ -50,11 +50,14 @@ sudo systemctl start qbittorrent-nox
 echo "Configuring UFW..."
 sudo ufw allow ssh
 sudo ufw default deny incoming
-sudo ufw allow 8080/tcp
-sudo ufw allow 57683/tcp
-sudo ufw allow 57683/udp
-sudo ufw allow 6881:6889/tcp
-sudo ufw allow 6881:6889/udp
-# to add additional rules
+sudo ufw allow 53/udp # DNS
+sudo ufw allow 53/tcp # Additional DNS functions
+sudo ufw allow 67:68/udp # DHCP
+# qBittorrent ports
+sudo ufw allow 8080/tcp # Web UI
+sudo ufw allow 57683/tcp # Main port TCP
+sudo ufw allow 57683/udp # Main port UDP
+sudo ufw allow 6881:6889/tcp # Optional peer connection ports TCP
+sudo ufw allow 6881:6889/udp # Optional peer connection ports UDP
 
 echo "Setup complete. Please configure qBittorrent WebUI and ExpressVPN settings manually, and enable the firewall."
