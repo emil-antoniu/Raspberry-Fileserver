@@ -1,0 +1,1 @@
+Wired 2 buttons to allow enabling and disabling of the Firewall and the VPN for troubleshooting, without having to connect to the Raspberry Pi.
