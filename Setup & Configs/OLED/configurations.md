@@ -33,12 +33,12 @@ Description=OLED Status Display
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/anton/oled.py
-WorkingDirectory=/home/anton
+ExecStart=/usr/bin/python3 /home/system-administrator/oled.py
+WorkingDirectory=/home/system-administrator
 StandardOutput=journal
 StandardError=journal
 Restart=always
-User=anton
+User=system-administrator
 
 [Install]
 WantedBy=multi-user.target
