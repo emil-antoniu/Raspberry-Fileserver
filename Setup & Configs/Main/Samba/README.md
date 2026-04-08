@@ -1,3 +1,9 @@
+# Install Samba
+
+```
+sudo apt install samba -y
+```
+
 # Configure Samba
 
 Allow Samba for LAN file sharing:
