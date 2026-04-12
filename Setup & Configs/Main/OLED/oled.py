@@ -23,7 +23,21 @@ def can_reach_internet(host="8.8.8.8"):
 
                 return verdict.returncode == 0
 
-        except any_exception: return False
+        except Exception: return False
+
+def check_lan_ip():
+
+        try:
+                ifconfig = subprocess.Popen(
+                        ["ifconfig", "wlan0"], stdout=subprocess.PIPE, text=True
+                )
+
+                grep = subprocess.run(
+                        ["grep", "192"], stdin=ifconfig.stdout, capture_output=True, text=True
+                )
+                return "." + grep.stdout.strip().split(" ")[1].split(".")[-1]
+
+        except Exception: return "bad"
 
 def ufw_status():
 
@@ -31,7 +45,7 @@ def ufw_status():
                 ["sudo", "ufw", "status"], capture_output=True, text=True
         )
 
-        return status.stdout.split(" ")[-1]
+        return status.stdout.splitlines()[0].split(" ")[-1]
 
 
 def fileserver_uptime():
@@ -58,10 +72,8 @@ while True:
         draw = ImageDraw.Draw(image)
 
         # Draw text
-        if can_reach_internet() == True:
-                draw.text((0, 0), "WAN: ok", font=font, fill=255)
-        else:
-                draw.text((0, 0), "WAN: failed ping", font=font, fill=255)
+        draw.text((0, 0), "WAN: {0} | LAN: {1}".format("ok" if can_reach_internet() == True else "uh oh", check_lan_ip()), font=font, fill=255)
+
         draw.text((0, 0), "\nVPN: {0}".format(vpn_status()), font=font, fill=255)
 
         draw.text((0, 0), "\n\nUFW: {0}".format(ufw_status()), font=font, fill=255)
