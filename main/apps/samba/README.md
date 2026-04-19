@@ -21,21 +21,34 @@ For restricted access, use:
    server string = Raspberry Pi Samba Server
    security = user
    map to guest = never
+   hosts allow = 192.168.1.0/24
 
 [microSD]
    comment = AUXILIARY STORAGE UNIT
    path = /usr/games/samba-shared
    browseable = yes
    writable = yes
-   valid users = USERNAME
-   force user = USERNAME
+   valid users = system-administrator samba-userB
+   force user = system-administrator samba-userB
    create mask = 0770
    directory mask = 0770
    public = no
 ```
-Remember to create a user, as SMB has a separate database from the one that holds system accounts.
+Remember to create a system user account for additional Samba users:
+```
+sudo adduser samba-userB
+```
+Set a password.
+
+Restrict shell access:
+```
+sudo usermod -s /usr/sbin/nologin samba-userB
+```
+
+Create and enable the Samba accounts:
 ```
 sudo smbpasswd -a USERNAME
+sudo smbpasswd -e USERNAME
 ```
 Restart Samba:
 ```
