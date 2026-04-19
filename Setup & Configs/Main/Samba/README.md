@@ -13,25 +13,7 @@ sudo ufw allow Samba
 ```
 sudo nano /etc/samba/smb.conf
 ```
-Replace contents with the following, only for <b>testing</b> access:
-```
-[global]
-   workgroup = WORKGROUP
-   server string = Raspberry Pi Samba Server
-   security = user
-   map to guest = Bad User
 
-[microSD]
-   comment = AUXILIARY STORAGE UNIT
-   path = /home/USERNAME/Downloads
-   browseable = yes
-   writable = yes
-   create mask = 0777
-   directory mask = 0777
-   guest ok = yes
-   public = yes
-   force user = USERNAME
-```
 For restricted access, use:
 ```
 [global]
@@ -42,7 +24,7 @@ For restricted access, use:
 
 [microSD]
    comment = AUXILIARY STORAGE UNIT
-   path = /home/USERNAME/Downloads
+   path = /usr/games/samba-shared
    browseable = yes
    writable = yes
    valid users = USERNAME
