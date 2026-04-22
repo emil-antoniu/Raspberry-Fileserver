@@ -70,5 +70,5 @@ sudo apt install smbclient -y
 ```
 
 ```
-smbclient //server_ip/share_name -U username
+smbclient -L //server_ip/share_name -U username -W workgroup
 ``` 
