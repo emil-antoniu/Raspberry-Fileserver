@@ -53,5 +53,17 @@ sudo smbpasswd -e USERNAME
 Restart Samba:
 ```
 sudo systemctl restart smbd
+
 sudo systemctl status smbd
 ```
+# Testing
+
+```
+sudo apt install smbclient -y
+```
+
+Test with:
+
+```
+smbclient //server_ip/share_name -U username
+``` 
