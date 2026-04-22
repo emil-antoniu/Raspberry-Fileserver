@@ -58,11 +58,16 @@ sudo systemctl status smbd
 ```
 # Testing
 
+List created Samba users:
+```
+sudo pdbedit -L
+```
+
+Test connection with:
+
 ```
 sudo apt install smbclient -y
 ```
-
-Test with:
 
 ```
 smbclient //server_ip/share_name -U username
