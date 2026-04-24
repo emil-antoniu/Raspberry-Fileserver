@@ -18,6 +18,10 @@ sudo net-snmp-create-v3-user
 Configure snmpd.conf:
 
 ```
+sudo nano /etc/snmp/snmpd.conf
+```
+
+```
 agentAddress udp:161
 
 # Restrict access to a single IP
