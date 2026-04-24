@@ -22,6 +22,7 @@ For restricted access, use:
    security = user
    map to guest = never
    hosts allow = 192.168.1.0/24
+   server min protocol = SMB2
 
 [microSD]
    comment = AUXILIARY STORAGE UNIT
@@ -29,7 +30,7 @@ For restricted access, use:
    browseable = yes
    writable = yes
    valid users = system-administrator samba-userB
-   force user = system-administrator samba-userB
+   force user = system-administrator
    create mask = 0770
    directory mask = 0770
    public = no
