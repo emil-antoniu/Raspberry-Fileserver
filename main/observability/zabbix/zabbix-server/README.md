@@ -1,3 +1,5 @@
+# Docker configurations
+
 My Windows device is hosting the Zabbix server-side resources within Docker Desktop.
 
 In PowerShell, create a Docker network:
@@ -98,3 +100,11 @@ docker rm zabbix-web-nginx-pgsql zabbix-server-pgsql zabbix-snmptraps postgres-s
 
 Reference:
 https://www.zabbix.com/documentation/current/en/manual/installation/containers
+
+# WebUI
+
+To configure a host, follow the guide below and make sure to set an interface to be the Raspberri Pi LAN-facing IP:
+https://www.zabbix.com/documentation/current/en/manual/config/hosts/host
+
+To view data from the agent, select a template (e.g. Linux by zabbix agent) and attach it to the host as per:
+https://www.zabbix.com/documentation/current/en/manual/config/templates/linking
