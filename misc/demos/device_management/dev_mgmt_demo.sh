@@ -8,3 +8,10 @@ echo -e -n "\n\n"
 read -r -p "Next up: dmidecode. My Pi does not support DMI, therefore, here is a wall of text:"
 echo -e -n "\n"
 man dmidecode | head --lines=37 | tail --lines=30
+echo -e -n "\n\n"
+
+read -r -p "Next up: IPMI. My Pi lacks a BMC(2) which is needed for IPMI to work(3), therefore, here is a brief definition from the manual of ipmitool:"
+echo -e -n "\n"
+# ipmitool needs to be installed
+man ipmitool | head --lines=43 | tail --lines=3
+echo -e -n "\n\n"
