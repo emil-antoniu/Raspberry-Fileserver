@@ -22,3 +22,10 @@ man lscpu | head --lines=12 | tail --lines=3
 read -r -p "Hit ENTER for a view into lscpu output."
 lscpu
 echo -e -n "\n\n"
+
+read -r -p "Next up: lshw."
+echo -e -n "\n"
+man lshw | head --lines=18 | tail --lines=2
+read -r -p "Hit ENTER for a shortened view into lshw output."
+lshw -short -sanitize
+echo -e -n "\n\n"
