@@ -40,4 +40,9 @@ echo -e -n "\n"
 man lspci | head --lines=10 | tail --lines=1
 echo -e -n "\n\n"
 
-# read -r -p "Next up: lsusb."
+read -r -p "Next up: lsusb."
+echo -e -n "\n"
+man lsusb | head --lines=11 | tail --lines=2
+read -r -p "Hit ENTER for a view into lsusb output."
+lsusb
+echo -e -n "\n\n"
