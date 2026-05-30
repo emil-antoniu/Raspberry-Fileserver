@@ -16,6 +16,8 @@ echo -e -n "\n"
 man ipmitool | head --lines=43 | tail --lines=3
 echo -e -n "\n\n"
 
+# read -r -p "Next up: lm_sensors."
+
 read -r -p "Next up: lscpu."
 echo -e -n "\n"
 man lscpu | head --lines=12 | tail --lines=3
@@ -27,5 +29,15 @@ read -r -p "Next up: lshw."
 echo -e -n "\n"
 man lshw | head --lines=18 | tail --lines=2
 read -r -p "Hit ENTER for a shortened view into lshw output."
+# lshw needs to be installed
 lshw -short -sanitize
 echo -e -n "\n\n"
+
+# read -r -p "Next up: lsmem."
+
+read -r -p "Next up: lspci. My Pi has no PCI slots, therefore, here is a brief definition from the manual:"
+echo -e -n "\n"
+man lspci | head --lines=10 | tail --lines=1
+echo -e -n "\n\n"
+
+# read -r -p "Next up: lsusb."
