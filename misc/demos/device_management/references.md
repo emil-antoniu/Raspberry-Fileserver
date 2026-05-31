@@ -9,3 +9,5 @@ https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10/html/managi
 Have not found explicit information on the absence of a BMC from the Pi in the official documentation, but forums do make it seem that a BMC is not built-in.
 
 (3) Wikipedia Contributors. (2026, March 29). *Intelligent Platform Management Interface.* Wikipedia; Wikimedia Foundation.
+
+(4) Vivek Gite. (2012, February 22). *How to install sensors (lm-sensors) on Ubuntu / Debian Linux - nixCraft.* NixCraft. https://www.cyberciti.biz/faq/install-sensors-lm-sensors-on-ubuntu-debian-linux/

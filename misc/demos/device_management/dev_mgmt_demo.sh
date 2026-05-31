@@ -16,7 +16,12 @@ echo -e -n "\n"
 man ipmitool | head --lines=43 | tail --lines=3
 echo -e -n "\n\n"
 
-# read -r -p "Next up: lm_sensors."
+read -r -p "Next up: lm-sensors. The lm-sensors package on your Debian and Ubuntu Linux system is used for hardware health monitoring. For example, the users can see CPU temperature, voltage, fan speed sensors>
+echo -e -n "\n\n"
+read -r -p "Hit ENTER for a view into sensors output."
+# lm-sensors needs to be installed
+sensors
+echo -e -n "\n\n"
 
 read -r -p "Next up: lscpu."
 echo -e -n "\n"
