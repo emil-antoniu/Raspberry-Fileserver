@@ -38,7 +38,10 @@ read -r -p "Hit ENTER for a shortened view into lshw output."
 lshw -short -sanitize
 echo -e -n "\n\n"
 
-# read -r -p "Next up: lsmem."
+read -r -p "Next up: lsmem. The command does not work on the Pi, therefore, here is a brief definition from the manual:"
+echo -e -n "\n"
+man lsmem | head --lines=11 | tail --lines=2
+echo -e -n "\n\n"
 
 read -r -p "Next up: lspci. My Pi has no PCI slots, therefore, here is a brief definition from the manual:"
 echo -e -n "\n"
