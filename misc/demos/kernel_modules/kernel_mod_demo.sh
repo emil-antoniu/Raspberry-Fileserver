@@ -8,7 +8,12 @@ echo -e -n "\n\n"
 
 # read -r -p "Next up: insmod"
 
-# read -r -p "Next up: lsmod"
+read -r -p "Next up: lsmod"
+echo -e -n "\n"
+man lsmod | head --lines=10 | tail --lines=1
+read -r -p "Hit ENTER for a view into lsmod output."
+lsmod | head
+echo -e -n "\n\n"
 
 # read -r -p "Next up: modinfo"
 
