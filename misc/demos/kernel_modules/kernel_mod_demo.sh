@@ -6,8 +6,6 @@ echo -e -n "\n"
 depmod --verbose | head
 echo -e -n "\n\n"
 
-# read -r -p "Next up: insmod"
-
 read -r -p "Next up: lsmod"
 echo -e -n "\n"
 man lsmod | head --lines=10 | tail --lines=1
@@ -24,4 +22,17 @@ echo -e -n "\n\n"
 
 # read -r -p "Next up: modprobe"
 
-# read -r -p "Next up: rmmod"
+read -r -p "Next up: insmod & rmmod"
+echo -e -n "\n"
+man insmod | head --lines=11 | tail --lines=3
+man rmmod | head --lines=11 | tail --lines=3
+read -r -p "Hit ENTER to insert and remove a test module. Needs su privileges."
+echo "Inserting hello.ko into running kernel..."
+sudo insmod hello.ko
+echo "Insertion complete."
+lsmod | grep "hello"
+echo "Removing hello.ko from running kernel..."
+sudo rmmod hello.ko
+lsmod | grep "hello"
+echo "Removal complete."
+echo -e -n "\n\n"
