@@ -20,8 +20,6 @@ read -r -p "Hit ENTER for a view into modinfo output (targeting the module xt_na
 modinfo xt_nat
 echo -e -n "\n\n"
 
-# read -r -p "Next up: modprobe"
-
 read -r -p "Next up: insmod & rmmod"
 echo -e -n "\n"
 man insmod | head --lines=11 | tail --lines=3
@@ -35,4 +33,11 @@ echo "Removing hello.ko from running kernel..."
 sudo rmmod hello.ko
 lsmod | grep "hello"
 echo "Removal complete."
+echo -e -n "\n\n"
+
+read -r -p "Next up: modprobe."
+echo -e -n "\n"
+man modprobe | head --lines=19 | tail --lines=3
+read -r -p "Hit ENTER for a view into modprobe output (removing snd_bcm2835)"
+modprobe --dry-run --verbose --remove snd_bcm2835
 echo -e -n "\n\n"
