@@ -1,15 +1,22 @@
-# lvm2 package is needed
-# sudo apt install lvm2
-read -r -p "First command we will look at is: pvcreate"
-echo -e -n "\n"
-man pvcreate | head --lines=22 | tail --lines=6
-read -r -p "Hit ENTER for..."
-echo -e -n "\n"
-
-echo -e -n "\n\n"
-# pvdisplay
-# pvmove
-# pvremove
-# pvresize
-# pvs
-# pvscan
+read -r -p "This is a demo on standard physical volume management commands."
+# Mounted an empty thumb drive for the demo
+lsblk
+sudo pvs --verbose --all
+sudo pvscan --verbose --allpvs
+read -r
+sudo pvcreate --verbose /dev/sda1
+read -r
+sudo pvs --verbose --all
+sudo pvscan --verbose --allpvs
+read -r
+sudo pvdisplay --verbose /dev/sda1
+read -r
+sudo pvresize --verbose --setphysicalvolumesize 1G /dev/sda1
+read -r
+sudo pvdisplay --verbose /dev/sda1
+read -r
+sudo pvremove --verbose /dev/sda1
+read -r
+lsblk
+sudo pvs --verbose --all
+sudo pvscan --verbose --allpvs
